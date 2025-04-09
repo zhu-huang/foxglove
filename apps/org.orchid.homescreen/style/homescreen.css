@@ -1,0 +1,44 @@
+:root {
+  --icon-size: 16vw;
+  --icon-label-size: 3.5vw;
+}
+
+@media screen and (orientation: landscape) {
+  :root {
+    --icon-size: 14vh;
+    --icon-label-size: 3vh;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    --icon-size: 5.6rem;
+    --icon-label-size: 1.3rem;
+  }
+}
+
+html, body, [role="app"], [role="panel"] {
+  overflow: hidden;
+  background-color: transparent !important;
+  user-select: none;
+}
+
+#home {
+  filter: none;
+}
+
+#drop-indicator {
+  visibility: hidden;
+  position: absolute;
+  border-radius: 1rem;
+  backdrop-filter: blur(20px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(1, 0, 0, 1);
+}
+
+#drop-indicator.visible {
+  visibility: visible;
+  opacity: 1;
+}

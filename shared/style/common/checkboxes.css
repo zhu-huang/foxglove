@@ -1,0 +1,78 @@
+.pack-checkbox {
+  display: inline-flex;
+  width: 100%;
+  overflow: hidden;
+}
+
+.pack-checkbox > label {
+  display: inline-flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.pack-checkbox > span {
+  display: inline-flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pack-checkbox > span input[type="checkbox"] {
+  appearance: none;
+  position: relative;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0 0.25rem;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  background-color: var(--checkbox-normal);
+  transition: background-color 0.3s ease;
+}
+
+.pack-checkbox > span input[type="checkbox"]:hover {
+  background-color: var(--checkbox-hover);
+  transition: background-color 0.1s ease;
+}
+
+.pack-checkbox > span input[type="checkbox"]:active {
+  background-color: var(--checkbox-active);
+  transition: background-color 0.1s ease;
+}
+
+.pack-checkbox > span input[type="checkbox"]:checked {
+  background-color: var(--accent-color);
+}
+
+.pack-checkbox.danger > span input[type="checkbox"]:checked {
+  background-color: #c00040;
+}
+
+.pack-checkbox > span input[type="checkbox"]::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(0) rotate(-45deg);
+  transform-origin: 50% 75%;
+  background-color: var(--accent-text-color);
+  content: '';
+  mask: url(checkboxes/images/tick.svg) no-repeat center / cover;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.4s cubic-bezier(0.5, 0.8, 0, 1), opacity 0.4s ease;
+}
+
+.pack-checkbox.danger > span input[type="checkbox"]::before {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.pack-checkbox > span input[type="checkbox"]:checked::before {
+  transform: scale(1);
+  opacity: 1;
+  transition: transform 0.4s cubic-bezier(0.5, 0.8, 0, 1.2), opacity 0.4s ease;
+}
